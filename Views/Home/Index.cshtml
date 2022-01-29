@@ -1,0 +1,23 @@
+﻿@using ComputerStore.Controllers
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Get Tech Here </h1>
+    <h2><b>Store Owner: </b>Dayo Ogundipe</h2>
+     <button type="button" onclick="location.href='@Url.Action("Laptops","Home")'">View Laptops</button>
+     <button type="button" onclick="location.href='@Url.Action("Accessories","Home")'">View Accessories</button>
+     <button type="button" onclick="location.href='@Url.Action("Tablets","Home")'">View Tablets</button>
+    <div><b> Below you will find this list of computers that we have and their details </b> </div>
+    <br/>
+    
+        @{
+             
+            foreach(Computer PC in Program.GetComputers())
+            {
+                WriteLiteral("<div>We Have a "+ PC.type +" with "+ PC.memory+"GB of memory. It has a " +PC.processor+ " processor and the operating system is " +PC.operatingSystem+ "</div><br>");
+            }
+        }
+    
+</div>
